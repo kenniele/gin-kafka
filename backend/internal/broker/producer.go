@@ -14,7 +14,7 @@ type OrderPlacer struct {
 
 func NewOrderPlacer(cfg config.KafkaConfig) *OrderPlacer {
 	p, err := kafka.NewProducer(&kafka.ConfigMap{
-		"bootstrap.servers": "87.228.13.94:9092",
+		"bootstrap.servers": "host.docker.internal:9092",
 		"client.id":         cfg.GroupID,
 		"acks":              "all",
 	})

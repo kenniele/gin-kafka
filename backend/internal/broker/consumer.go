@@ -8,7 +8,7 @@ import (
 
 func NewConsumer(cfg config.KafkaConfig) *kafka.Consumer {
 	consumer, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers": "87.228.13.94:9092",
+		"bootstrap.servers": "host.docker.internal:9092",
 		"group.id":          cfg.GroupID,
 		"auto.offset.reset": "smallest",
 	})
