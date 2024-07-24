@@ -8,7 +8,7 @@ import (
 func CreateRouter() *gin.Engine {
 	r := gin.Default()
 	r.ForwardedByClientIP = true
-	if err := r.SetTrustedProxies([]string{"192.168.1.2", "10.0.0.0/8"}); err != nil {
+	if err := r.SetTrustedProxies([]string{"192.168.1.2", "10.0.0.0/8", "87.228.13.94"}); err != nil {
 		return nil
 	}
 
