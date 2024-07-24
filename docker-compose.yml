@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       DATABASE_URL: postgres://${USER}:${PASSWORD}@postgres:5432/${DATABASE}?sslmode=disable
-      KAFKA_BROKER: 87.228.13.94:9092
+      KAFKA_BROKER: broker:9092
     env_file:
       - .env
     ports:
@@ -22,8 +22,6 @@ services:
       POSTGRES_USER: ${USER}
       POSTGRES_PASSWORD: ${PASSWORD}
       POSTGRES_DB: ${DATABASE}
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
