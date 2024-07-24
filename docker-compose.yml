@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      DATABASE_URL: postgres://${USERNAME}:${PASSWORD}@postgres:5432/${DATABASE}?sslmode=disable
+      DATABASE_URL: postgres://${USER}:${PASSWORD}@postgres:5432/${DATABASE}?sslmode=disable
       KAFKA_BROKER: broker:9092
     env_file:
       - .env
