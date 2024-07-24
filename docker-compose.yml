@@ -30,6 +30,8 @@ services:
       POSTGRES_DB: ${DATABASE}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.2
@@ -37,6 +39,8 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - default
 
   broker:
     image: confluentinc/cp-kafka:7.3.2
@@ -52,6 +56,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: ${KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR}
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: ${KAFKA_TRANSACTION_STATE_LOG_MIN_ISR}
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: ${KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR}
+    networks:
+      - default
 
 volumes:
   postgres_data:
