@@ -11,6 +11,7 @@ services:
       POSTGRES_PASSWORD: ${PASSWORD}
       POSTGRES_DB: ${DATABASE}
       POSTGRES_HOST: ${HOST}
+      POSTGRES_POST: ${PORT}
     env_file:
       - .env
     ports:
@@ -28,6 +29,7 @@ services:
       POSTGRES_USER: ${USER}
       POSTGRES_PASSWORD: ${PASSWORD}
       POSTGRES_DB: ${DATABASE}
+      POSTGRES_PORT: ${PORT}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
