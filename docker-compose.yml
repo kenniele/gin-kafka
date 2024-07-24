@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       DATABASE_URL: postgres://${USER}:${PASSWORD}@postgres:5432/${DATABASE}?sslmode=disable
+      KAFKA_BROKER: 87.228.13.94:9092
     env_file:
       - .env
     ports:
@@ -32,8 +33,6 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "2181:2181"
 
   broker:
     image: confluentinc/cp-kafka:7.3.2
@@ -49,9 +48,6 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: ${KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR}
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: ${KAFKA_TRANSACTION_STATE_LOG_MIN_ISR}
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: ${KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR}
-    ports:
-      - "9092:9092"     # External port
-      - "29092:29092"   # Internal port
 
 volumes:
   postgres_data:
