@@ -22,6 +22,9 @@ services:
     container_name: postgres
     environment:
       DATABASE_URL: postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}?sslmode=disable
+      POSTGRES_USER: ${USER}
+      POSTGRES_PASSWORD: ${PASSWORD}
+      POSTGRES_DB: ${DATABASE}
     ports:
       - "5432:5432"
     volumes:
